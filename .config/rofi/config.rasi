@@ -1,0 +1,32 @@
+configuration {
+    /* Enable all modes */
+    modi: "drun,run,window,filebrowser";
+    
+    /* Visuals */
+    show-icons: true;
+    display-drun: "🚀 Apps";
+    display-run: " Cmd";
+    display-window: " Windows";
+    display-filebrowser: "📂 Files";
+    sidebar-mode: true;
+
+    /* --- Keybindings --- */
+
+    /* 1. Unbind conflicting defaults */
+    kb-remove-to-eol: "";             /* Frees up Ctrl+k */
+    kb-remove-char-back: "BackSpace"; /* Frees up Ctrl+h */
+    kb-accept-entry: "Control+m,Return,KP_Enter"; /* Frees up Ctrl+j */
+    kb-mode-complete: "";             /* Frees up Ctrl+l (THE FIX) */
+    
+    /* 2. Vim Navigation (Rows) */
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
+
+    /* 3. Vim Navigation (Tabs) */
+    /* Ctrl+l = Next Tab (Apps -> Windows) */
+    kb-mode-next: "Shift+Right,Control+l";
+    
+    /* Ctrl+h = Previous Tab (Windows -> Apps) */
+    kb-mode-previous: "Shift+Left,Control+h";
+}
+@theme "kanagawa-dragon"

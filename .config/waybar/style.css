@@ -1,0 +1,164 @@
+/* --- Kanagawa Dragon Palette --- */
+@define-color bg #181616;
+@define-color fg #c5c9c5;
+@define-color red #c4746e;
+@define-color green #8a9a7b;
+@define-color yellow #E6C384;
+@define-color blue #8ba4b0;
+@define-color magenta #a292a3;
+@define-color cyan #8ea4a2;
+@define-color selection #2D4F67;
+
+* {
+    /* Critical: Prioritize Font Awesome for icons */
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands", monospace;
+    font-size: 15px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @fg;
+}
+
+/* --- Tooltip Customization (Bigger Calendar) --- */
+tooltip {
+    background: @bg;
+    border: 1px solid @selection;
+    border-radius: 10px;
+}
+tooltip label {
+    font-size: 18px; /* Bigger text inside tooltip */
+    color: @fg;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+/* --- The Pill Shape --- */
+#custom-launcher, #workspaces, #idle_inhibitor,
+#clock, #custom-notification,
+#tray, #mpris, #pulseaudio, #backlight, #network, #bluetooth, #battery, #custom-power {
+    padding: 0px 15px;
+    margin: 4px 3px;
+    border-radius: 15px;
+    background-color: @selection;
+    color: @fg;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+/* --- Specific Module Adjustments --- */
+
+#custom-launcher {
+    background-color: @red;
+    color: @bg;
+    font-size: 22px; /* Logo needs to be large */
+    /* Manual Centering Fix: */
+    padding-left: 14px;  
+    padding-right: 22px; /* Extra padding on right to push icon left */
+    margin-right: 10px;
+}
+
+#workspaces {
+    background-color: @bg;
+    border: 1px solid @selection;
+}
+#workspaces button {
+    color: @selection;
+}
+#workspaces button.active {
+    color: @yellow;
+}
+#workspaces button.urgent {
+    color: @red;
+}
+
+
+#clock {
+    background-color: @selection;
+    color: @magenta;
+}
+
+#custom-notification {
+    background-color: @selection;
+    color: @yellow;
+    padding-right: 16px;
+}
+
+#mpris {
+    background-color: @selection;
+    color: @cyan;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#backlight {
+    background-color: @selection;
+    color: @yellow;
+}
+
+#network {
+    color: @blue;
+}
+#bluetooth {
+    color: @blue;
+}
+
+#battery {
+    color: @green;
+}
+#battery.charging {
+    color: @yellow;
+}
+#battery.critical {
+    background-color: @red;
+    color: @bg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: @bg;
+        background-color: @red;
+    }
+}
+
+#custom-power {
+    background-color: @red;
+    color: @bg;
+    font-size: 18px;
+    /* Manual Centering for Power Icon */
+    padding-left: 14px;
+    padding-right: 18px;
+}
+
+
+/* --- System Tray --- */
+#tray {
+    background-color: @selection;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+
+
+/* --- Specific Styling --- */
+#idle_inhibitor {
+    background-color: @selection;
+    color: @blue; /* Default: Blue/Grey (Sleeping allowed) */
+    padding-right: 14px;
+}
+
+#idle_inhibitor.activated {
+    background-color: @yellow; /* Active: Gold (No Sleep!) */
+    color: @bg;
+}

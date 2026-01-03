@@ -1,0 +1,60 @@
+/* Kanagawa Dragon Palette */
+@define-color bg #181616;
+@define-color fg #c5c9c5;
+@define-color red #c4746e;
+@define-color selection #2D4F67;
+@define-color yellow #E6C384;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+.control-center {
+    background: @bg;
+    border: 2px solid @selection;
+    border-radius: 12px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+
+.notification {
+    background: @selection;
+    border-radius: 12px;
+    margin: 6px;
+    padding: 10px;
+}
+
+.notification-default {
+    background: @selection;
+    color: @fg;
+}
+
+.notification-content {
+    background: transparent;
+}
+
+.summary {
+    color: @yellow;
+    font-weight: bold;
+}
+
+.time {
+    color: @fg;
+    font-size: 11px;
+}
+
+.body {
+    color: @fg;
+}
+
+/* The "Clear All" Button */
+.control-center-list-placeholder {
+    opacity: 0.5;
+}
+
+.floating-notifications {
+    background: transparent;
+}
+
+.blank-window {
+    background: alpha(black, 0.1);
+}

@@ -1,0 +1,136 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 4,
+    "margin-top": 5,
+    "margin-bottom": 5,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+
+        "mpris",
+        "clock",
+        "custom/notification"
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "pulseaudio",
+        "backlight",
+        "network",
+        "bluetooth",
+        "battery",
+        "custom/power"
+    ],
+
+    // --- CONFIG ---
+
+    "custom/launcher": {
+        // Arch Logo using Hex Code to ensure it renders
+        "format": "\uf303", 
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "urgent": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+
+    "clock": {
+        "format": "  {:%a %b %d   %I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "custom/notification": {
+        "format": "",
+        "on-click": "swaync-client -t -sw",
+        "tooltip": false
+    },
+
+    "mpris": {
+        "format": "  {artist} - {title}",
+        "format-paused": "  {artist} - {title}",
+        "format-stopped": "  Stopped",
+        "max-length": 30,
+        "interval": 1,
+        "on-click": "playerctl play-pause"
+    },
+
+    "pulseaudio": {
+        // Add spaces here ↓
+        "format": "{icon}  {volume}%",
+        "format-muted": "\uf6a9   Muted", // Add spaces here too for consistency
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"] 
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        // Simple Circle/Sun progression
+        "format-icons": ["\uE3A6", "\uE3A7", "\uE3A8", "\uE3A9", "\uE3AA"], 
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": " ",
+        "format-disconnected": "⚠ ",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "on-click": "nm-connection-editor"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-connected": " {device_alias}",
+        "format-disabled": " (Off)",
+        "on-click": "blueman-manager"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+"tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+"custom/power": {
+        "format": "",
+        "tooltip": false,
+        // Added 'Suspend' to the list and the logic
+        "on-click": "echo -e 'Shutdown\nReboot\nSuspend\nLogout' | fuzzel -d -w 20 -l 4 | xargs -I{} bash -c 'if [ \"{}\" = \"Shutdown\" ]; then systemctl poweroff; elif [ \"{}\" = \"Reboot\" ]; then systemctl reboot; elif [ \"{}\" = \"Suspend\" ]; then systemctl suspend; elif [ \"{}\" = \"Logout\" ]; then hyprctl dispatch exit; fi'"
+    }
+}

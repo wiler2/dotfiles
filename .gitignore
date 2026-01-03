@@ -1,0 +1,16 @@
+# Ignore Neovim/Vim swap files
+*.swp
+*.swo
+*~
+
+# Ignore OS junk
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache (if you have scripts)
+__pycache__/
+*.pyc
+
+# Ignore simple history files if they got in there
+.bash_history
+.zsh_history
