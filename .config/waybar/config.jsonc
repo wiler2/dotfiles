@@ -131,6 +131,6 @@
         "format": "",
         "tooltip": false,
         // Added 'Suspend' to the list and the logic
-        "on-click": "echo -e 'Shutdown\nReboot\nSuspend\nLogout' | fuzzel -d -w 20 -l 4 | xargs -I{} bash -c 'if [ \"{}\" = \"Shutdown\" ]; then systemctl poweroff; elif [ \"{}\" = \"Reboot\" ]; then systemctl reboot; elif [ \"{}\" = \"Suspend\" ]; then systemctl suspend; elif [ \"{}\" = \"Logout\" ]; then hyprctl dispatch exit; fi'"
+	"on-click": "echo -e 'Shutdown\\nReboot\\nSuspend\\nHibernate\\nLogout' | rofi -dmenu -p \"Power\" -theme-str 'window {width: 12em; height: 13.5em; border-radius: 10px; padding: 10px; border: 2px;} inputbar {enabled: false;} mainbox {children: [listview];} listview {lines: 5; fixed-height: false; scrollbar: false;} element {padding: 5px; border-radius: 4px;}' | xargs -I{} bash -c 'if [ \"{}\" = \"Shutdown\" ]; then systemctl poweroff; elif [ \"{}\" = \"Reboot\" ]; then systemctl reboot; elif [ \"{}\" = \"Suspend\" ]; then systemctl suspend; elif [ \"{}\" = \"Hibernate\" ]; then systemctl hibernate; elif [ \"{}\" = \"Logout\" ]; then hyprctl dispatch exit; fi'"
     }
 }
