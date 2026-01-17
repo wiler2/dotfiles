@@ -1,0 +1,6 @@
+run these 
+
+sudo cp ~/.config/kanata/kanata.kbd /etc/kanata/kanata.kbd
+
+
+sudo systemctl restart kanata.service  
