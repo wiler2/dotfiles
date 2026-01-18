@@ -1,3 +1,4 @@
+
 (defcfg
   process-unmapped-keys yes
   concurrent-tap-hold yes
@@ -9,17 +10,20 @@
 )
 
 (defalias
+  ;; Hold Space -> numbers layer
   spc_num (tap-hold $tap $hold spc (layer-while-held num))
 
-  ;; define cw FIRST
-  cw      (caps-word-toggle 2500)
-
-  ;; then use it
+  ;; Caps Word toggle with double Shift
+  cw (caps-word-toggle 2500)
   lsft_cw (tap-dance 200 (lsft @cw))
   rsft_cw (tap-dance 200 (rsft @cw))
 
-  os_super (one-shot 1200 lmet)
-  os_alt   (one-shot 1200 lalt)
+  ;; One-shot modifiers (tap then next key gets modifier)
+  os_super (one-shot 1200 lmet)  ;; Super
+  os_alt   (one-shot 1200 lalt)  ;; Alt
+
+  ;; While-held symbols layer
+  sym_hold (layer-while-held sym)
 )
 
 (defsrc
@@ -30,19 +34,36 @@
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
+;; ---------------- BASE ----------------
 (deflayer base
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab q    w    e    r    t    y    u    i    o    p    [    ]    \
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret
-  @lsft_cw z    x    c    v    b    n    m    ,    .    /    @rsft_cw
+  @lsft_cw z x  c    v    b    n    m    ,    .    /    @rsft_cw
   lctl lmet lalt           @spc_num        ralt rmet rctl
 )
 
-
+;; ---------------- NUMBERS (HOLD SPACE) ----------------
+;; Space+q = Super (one-shot), Space+w = Alt (one-shot)
+;; Home row numbers: a..; = 1..0
+;; Hold Space + hold Caps/Ctrl -> symbols layer (sym)
 (deflayer num
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @os_super @os_alt S-9  S-0  S-[  S-]  S-,  S-.  _    _    _    _
-  _    1    2    3    4    5    6    7    8    9    0    _    _    _
-  _    -    S--  =    S-=  S-8  [    ]    _    _    _    _
-  _    _    _              _              _   _   _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
+  tab  @os_super @os_alt _    _    _    _    _    _    _    _    _    _    _
+  @sym_hold 1   2    3    4    5    6    7    8    9    0    _    ret
+  _    -    S--  =    S-=  S-8  [    ]    S-,  S-.  /    _
+  lctl lmet lalt           _              ralt rmet rctl
 )
+
+;; ---------------- SYMBOLS (HOLD SPACE + HOLD CAPS) ----------------
+;; Q = ` , W = ~  (above home row like you asked)
+;; Home row (a..;) becomes: ! @ # $ % ^ & * ( )
+;; Extras: { } [ ] < > \ | kept on the top row nearby
+(deflayer sym
+  _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
+  tab  grv  S-grv S-[  S-]  [    ]    S-,  S-.  \    S-\  _    _    _
+  _    S-1  S-2  S-3  S-4  S-5  S-6  S-7  S-8  S-9  S-0  _    ret
+  _    -    S--  =    S-=  S-8  /    S-/  ,    .    /    _
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+

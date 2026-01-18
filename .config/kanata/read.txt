@@ -2,5 +2,10 @@ run these
 
 sudo cp ~/.config/kanata/kanata.kbd /etc/kanata/kanata.kbd
 
+do this instead of copy
+sudo ln -s /home/wiler2/.config/kanata/kanata.kbd /etc/kanata/kanata.kbd
+
+check the file is vaild syntax with this
+sudo kanata --check -c /etc/kanata/kanata.kbd
 
 sudo systemctl restart kanata.service  
