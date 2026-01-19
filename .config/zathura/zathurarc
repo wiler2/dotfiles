@@ -1,9 +1,19 @@
-# Kanagawa Dragon Recolor
-set recolor "true"
-set recolor-lightcolor "#181616"
-set recolor-darkcolor "#c5c9c5"
-set default-bg "#181616"
-set default-fg "#c5c9c5"
+# --- UI SETTINGS ---
+# Remove the status bar/ribbon (clean look)
+set guioptions ""
 
-# Keybinds
-map i recolor  # Press 'i' to toggle dark mode
+# --- DARK MODE SETTINGS ---
+set recolor "true"
+set recolor-lightcolor "#000000"
+set recolor-darkcolor "#E0E0E0"
+
+# Try to keep image colors normal-ish
+set recolor-keephue "true"
+
+# --- KEYBINDINGS ---
+# Press 'i' to instantly toggle dark/light mode 
+# (Use this when you see a messed-up diagram/image)
+map i recolor
+
+# Reload config with 'R' (useful while tweaking)
+map R feedkeys ":source<Return>"
