@@ -51,9 +51,10 @@
 ;; Space+q = Super (one-shot), Space+w = Alt (one-shot)
 ;; Home row numbers: a..; = 1..0
 ;; Hold Space + hold Caps/Ctrl -> symbols layer (sym)
+
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  esc  @os_super @os_alt @nav_hold    _    _    _    _    _    _    _    _    _    _
+  esc  @os_super @os_alt @nav_hold   f1  f2    f3   f4   f5   f11   f12   del    _    _
   @sym_hold 1   2    3    4    5    6    7    8    9    0    bspc    ret
   _    -    S--  =    S-=  S-8  [    ]    S-,  S-.  /    _
   lctl lmet lalt           _              ralt rmet rctl
@@ -63,6 +64,7 @@
 ;; Q = ` , W = ~  (above home row like you asked)
 ;; Home row (a..;) becomes: ! @ # $ % ^ & * ( )
 ;; Extras: { } [ ] < > \ | kept on the top row nearby
+
 (deflayer sym
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  grv  S-grv S-[  S-]  [    ]    S-,  S-.  \    S-\  _    _    _
