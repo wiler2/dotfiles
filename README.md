@@ -62,7 +62,6 @@ When you **hold Space**, you get:
 - `[ (next to P)` becomes **Delete**
 - `Space+Tab` becomes **Esc**
 - `Space+E (hold)` enters a navigation layer (arrows on `hjkl`)
- **Backspace**
 - `Space + ;` → **Backspace** (handy while typing numbers)
 
 
@@ -90,7 +89,7 @@ While holding Space, hold `E` to enter navigation:
 
 ### NUM (hold Space)
 **Modifiers / controls**
-- `space+;` -> **Backspace**
+- `space+;` → **Backspace**
 - `Space+Tab` → **Esc**
 - `Space+Q` → one-shot **Super**
 - `Space+W` → one-shot **Alt**
