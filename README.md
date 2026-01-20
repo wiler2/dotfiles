@@ -143,7 +143,7 @@ While holding Space, hold `E` to enter navigation:
 Laptop **Fn** is usually handled by firmware and doesn’t generate a normal key event, so Kanata can’t remap Fn itself.
 For brightness/volume, bind XF86 keys or use your WM (e.g. Hyprland + brightnessctl).
 
-### Validate config
+### Validate config (linux only)
 Before restarting the service:
 ```bash
 sudo kanata --check -c /etc/kanata/kanata.kbd
