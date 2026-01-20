@@ -62,6 +62,9 @@ When you **hold Space**, you get:
 - `[ (next to P)` becomes **Delete**
 - `Space+Tab` becomes **Esc**
 - `Space+E (hold)` enters a navigation layer (arrows on `hjkl`)
+ **Backspace**
+- `Space + ;` → **Backspace** (handy while typing numbers)
+
 
 ### 3) SYM layer (hold Space + hold Caps)
 While holding Space, if you also **hold Caps/Ctrl**, you enter a symbols layer:
@@ -83,14 +86,17 @@ While holding Space, hold `E` to enter navigation:
 - Normal typing
 - **Double-tap LShift / RShift** → Caps Word toggle
 - **Hold Space** → NUM
+  
 
 ### NUM (hold Space)
 **Modifiers / controls**
+- `space+;` -> **Backspace**
 - `Space+Tab` → **Esc**
 - `Space+Q` → one-shot **Super**
 - `Space+W` → one-shot **Alt**
 - `Space+E (hold)` → **NAV**
 - `Space+Caps (hold)` → **SYM** (momentary)
+
 
 **Numbers**
 - `Space + A S D F G H J K L ;` → `1 2 3 4 5 6 7 8 9 0`
