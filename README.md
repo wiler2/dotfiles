@@ -10,6 +10,9 @@ The idea:
 
 > Layout: **US** (`localectl status` → X11 Layout: us)
 
+the file 'kanata.kbd' can be found here in this repo just navigate to the the folder '.config/kanata/kanata.kbd'
+please read the [kanata repo](https://github.com/jtroo/kanata). it will tell you where to put the file 'kanata.kbd' on your system
+there is also a 'read.txt' file in the '.config/kanata/' you can read it to know how i made it run in the background as a system service (it is not guarantee to work tho) or the recommeded way is to use a system tray icon, check the [kanata repo](https://github.com/jtroo/kanata) for more info about this please.
 ---
 
 ## Features
