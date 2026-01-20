@@ -8,9 +8,20 @@ The idea:
 - **Hold Space + hold E** = navigation (arrow keys) with vim-like `hjkl`
 - **Double-tap Shift** = Caps Word (great for CONSTANT_NAMES)
 
-the file 'kanata.kbd' can be found here in this repo just navigate to the the folder '.config/kanata/kanata.kbd'
-please read the [kanata repo](https://github.com/jtroo/kanata). it will tell you where to put the file 'kanata.kbd' on your system
-there is also a 'read.txt' file in the '.config/kanata/' you can read it to know how i made it run in the background as a system service (it is not guarantee to work tho) or the recommeded way is to use a system tray icon, check the [kanata repo](https://github.com/jtroo/kanata) for more info about this please.
+The file `kanata.kbd` can be found in this repo at:
+
+- `.config/kanata/kanata.kbd`
+
+Please read the Kanata repo docs — it explains where to place `kanata.kbd` on your system:
+
+- https://github.com/jtroo/kanata
+
+There is also a `read.txt` file in:
+
+- `.config/kanata/`
+
+You can read it to see how I made Kanata run in the background as a system service (not guaranteed to work). The recommended way is to use a system tray icon — check the Kanata repo for more info.
+
 
 
 > Layout: **US** (`localectl status` → X11 Layout: us)
