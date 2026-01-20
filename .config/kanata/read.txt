@@ -1,3 +1,7 @@
+for linux users only!! (maybe works for mac? idk)
+
+please read the kanata repo it has fixes on how to make kanata run on the background or "I think" you can use a system tray icon(check the kkanata repo for more info please)
+
 run these 
 
 sudo cp ~/.config/kanata/kanata.kbd /etc/kanata/kanata.kbd
