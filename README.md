@@ -1,5 +1,15 @@
 # Kanata “Coder Layers” (US layout)
 
+## Important note (Hyprland + Caps remapped)
+
+I’m using **Hyprland**, and I remapped **Caps Lock → Left Ctrl** in my system/WM config.  
+So “Caps” in this README means **the physical Caps key position**, but it behaves as **Ctrl** for me.
+
+- In normal typing, that key is effectively **Left Ctrl**.
+- In Kanata, the `defsrc` still names that position `caps`, but functionally it’s my **Ctrl key**.
+- Anywhere you see **“hold Caps”**, read it as **“hold my Ctrl (the old Caps key)”**.
+
+
 This is my Kanata keyboard layout for fast coding on a laptop keyboard without a numpad.
 
 The idea:
