@@ -32,6 +32,25 @@ You can read it to see how I made Kanata run in the background as a system servi
 ### 1) Caps Word on double Shift
 - Double-tap **Left Shift** or **Right Shift** → toggle Caps Word
 - Useful for typing identifiers like `MY_CONSTANT_NAME_123` without holding Shift.
+  
+### One-shot modifiers (what “one-shot” means)
+Some keys in the NUM layer are **one-shot modifiers**. That means:
+
+- You tap the modifier once,
+- then the *next* key you press is sent with that modifier,
+- and then it turns off automatically.
+
+In this layout:
+- `Space+Q` = **one-shot Super**
+- `Space+W` = **one-shot Alt**
+
+Example (Hyprland):
+I have **Super+Space** bound to open Rofi. With one-shot Super I can do:
+1) Hold `Space` (enter NUM layer)
+2) Tap `Q` (arms one-shot Super) and release everything
+3) Tap `Space` again → Kanata sends **Super+Space**, so Rofi launches
+
+This reduces awkward thumb stretches for Super/Alt combos.
 
 ### 2) NUM layer (hold Space)
 When you **hold Space**, you get:
