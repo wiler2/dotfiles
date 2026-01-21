@@ -51,6 +51,7 @@ I have **Super+Space** bound to open Rofi. With one-shot Super I can do:
 3) Tap `Space` again → Kanata sends **Super+Space**, so Rofi launches
 
 This reduces awkward thumb stretches for Super/Alt combos.
+> I later found out that if you keep pressing(holding) Q the super key will keep pressed even though you arealdy used the one shot + key, this is very useful if you have multiple keys that work with the SUPER key, without keep repeating the (one shot + key) everytime. 
 
 ### 2) NUM layer (hold Space)
 When you **hold Space**, you get:
