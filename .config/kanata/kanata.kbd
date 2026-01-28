@@ -59,7 +59,7 @@
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
   esc  @os_super @os_alt @nav_hold   f1  f2    f3   f4   f5   f11   f12   del    _    _
-  @cap_sym 1   2    3    4    5    6    7    8    9    0    bspc    ret
+  @cap_sym 1   2    3    4    5    6    7    8    9    0    bspc    XX
   _    -    S--  =    S-=  S-8  [    ]    S-,  S-.  S-/    _
   lctl lmet lalt           _              ralt rmet rctl
 )
