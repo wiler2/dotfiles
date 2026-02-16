@@ -102,3 +102,18 @@ button selected {
   background-color: @bg-col;
   text-color: @blue;
 }
+
+/* --- FIXING THE WHITE MESSAGE BAR --- */
+message {
+    background-color: @bg-col;
+    padding: 5px;
+    margin: 10px;
+    border: 1px;
+    border-radius: 3px;
+    border-color: @border-col;
+}
+
+textbox {
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
