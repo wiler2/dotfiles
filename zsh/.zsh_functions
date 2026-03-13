@@ -1,0 +1,126 @@
+# Watch Neovim's log file in real-time
+vlog() {
+  local log_file="$HOME/.local/state/nvim/log"
+  if [[ -f "$log_file" ]]; then
+    tail -f "$log_file" | bat --paging=never --language=log
+  else
+    echo "No Neovim log found."
+  fi
+}
+
+# 1. Combined Install: Lists all repo packages with their source [repo]
+paci() {
+  yay -Sl | awk '{print "["$1"]", $2}' | \
+  fzf --multi \
+      --preview 'yay -Si {2}' \
+      --preview-window=down:75% \
+      --layout=reverse \
+      --header 'Tab: Select, Enter: Install' | \
+  awk '{print $2}' | \
+  xargs -ro yay -S --sudoloop --noconfirm --needed
+}
+
+# 2. Combined Remove: Lists all installed packages (Repo + AUR)
+# Combined Remove: Shows [repo] or [aur] for every installed package
+pacr() {
+  (
+    # List Native packages (from official repos)
+    yay -Qnq | awk '{print "[\033[32mrepo\033[0m]", $1}'
+    # List Foreign packages (from AUR/manual)
+    yay -Qmq | awk '{print "[\033[33maur\033[0m]", $1}'
+  ) | \
+  fzf --multi --ansi \
+      --preview 'yay -Qi {2}' \
+      --preview-window=down:75% \
+      --layout=reverse \
+      --header 'Tab: Select, Enter: Remove' | \
+  awk '{print $2}' | \
+  xargs -ro yay -Rns --sudoloop --noconfirm
+}
+
+# Interactive Process Killer
+kp() {
+  ps -ef | \
+  fzf --header 'Select process to KILL' --layout=reverse | \
+  awk '{print $2}' | \
+  xargs -r kill -9
+}
+
+# Better History Search
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -ln 1 || history) | \
+    fzf +s --tac --layout=reverse --header 'Search History' )
+}
+
+
+# Quickly edit config files
+conf() {
+  local files=(
+    "$HOME/.zshrc"
+    "$HOME/.zsh_functions"
+    "$HOME/.config/hypr/hyprland.conf"
+    "$HOME/.config/nvim/init.lua"
+    "$HOME/.config/kitty/kitty.conf"
+  )
+  
+  local choice=$(printf "%s\n" "${files[@]}" | fzf --header "Edit Config")
+  
+  if [[ -n "$choice" ]]; then
+    nvim "$choice"
+    [[ "$choice" == *".zshrc" ]] && source "$HOME/.zshrc" && echo "Zshrc reloaded!"
+  fi
+}
+
+# High-Definition Persistent cheat.sh (Clean Version)
+qs() {
+  local languages="cpp lua bash python javascript electronics"
+  
+  while true; do
+    local selected_lang=$(echo "$languages" | tr ' ' '\n' | fzf \
+      --header "Select Language (ESC to exit)" --layout=reverse --border)
+    
+    if [[ -z "$selected_lang" ]]; then break; fi
+
+    while true; do
+      echo -n -e "\nQuery for \e[32m$selected_lang\e[0m (or 'back'/'exit'): "
+      read user_query
+      
+      user_query=$(echo "$user_query" | xargs)
+      if [[ "$user_query" == "exit" ]]; then return 0; fi
+      if [[ "$user_query" == "back" || -z "$user_query" ]]; then break; fi
+
+      # Map selected_lang to bat syntax highlighting
+      local syntax="$selected_lang"
+      [[ "$selected_lang" == "electronics" ]] && syntax="text"
+
+      local search_query=$(echo "$user_query" | sed 's/ /+/g')
+      echo -e "Fetching \e[34mcht.sh/$selected_lang/$search_query\e[0m...\n"
+      
+      # The Fix: Added "?T" to the URL to get plain text for 'bat'
+      curl -sL "cht.sh/$selected_lang/${search_query}?T" | bat --language="$syntax" --style="numbers,changes,grid" --paging=always
+    done
+  done
+}
+
+# Universal Extractor
+ex() {
+  if [[ -f $1 ]]; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+

@@ -16,6 +16,10 @@ setopt HIST_IGNORE_SPACE   # Don't save commands starting with space
 
 # --- 3. Completion System (Fast Init) ---
 # Replaces the slow 'compinstall' block
+
+
+fpath=(/usr/share/zsh/site-functions $fpath)
+
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive
@@ -63,12 +67,24 @@ alias glg='git log --stat'
 alias c="clear"
 alias open="xdg-open"
 alias c++23="clang++ -std=c++23"
+alias le="eza"
+
+# Pipe any command output directly to your clipboard
+# Usage: cat file.cpp | cp2
+alias cp2="wl-copy"
+
+# Paste from clipboard to a file
+# Usage: p2 > new_file.lua
+alias p2="wl-paste"
 
 # Advanced Package Manager Aliases
-alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% --layout=reverse | xargs -ro yay --sudoloop --noconfirm --needed -S"
-alias pacf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window=down:75% --layout=reverse | xargs -ro sudo pacman --noconfirm --needed -S"
-alias yayr="yay -Qq | fzf --multi --preview 'yay -Qi {1}' --preview-window=down:75% --layout=reverse | xargs -ro yay --sudoloop --noconfirm -Rns"
-alias pacr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' --preview-window=down:75% --layout=reverse | xargs -ro sudo pacman --noconfirm -Rns"
+# alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% --layout=reverse | xargs -ro yay --sudoloop --noconfirm --needed -S"
+# alias pacf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' --preview-window=down:75% --layout=reverse | xargs -ro sudo pacman --noconfirm --needed -S"
+# alias yayr="yay -Qq | fzf --multi --preview 'yay -Qi {1}' --preview-window=down:75% --layout=reverse | xargs -ro yay --sudoloop --noconfirm -Rns"
+# alias pacr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' --preview-window=down:75% --layout=reverse | xargs -ro sudo pacman --noconfirm -Rns"
+
+[[ -f ~/.zsh_functions ]] && source ~/.zsh_functions
+
 
 # --- 8. Functions ---
 # Yazi Wrapper
@@ -89,7 +105,7 @@ source /usr/share/fzf/completion.zsh
 # Zoxide & Starship
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-alias cd='z'
+# alias cd='z'
 
 # Visual Plugins (Must be last)
 source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
