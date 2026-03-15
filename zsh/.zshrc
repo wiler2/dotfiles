@@ -48,7 +48,7 @@ export VISUAL="nvim"
 export TERMINAL="kitty"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Games/not a game/WeiDU-Linux:$PATH"
-
+export PATH="$HOME/go/bin:$PATH"
 # --- 6. Manual "Git Plugin" (Fast Aliases) ---
 alias g='git'
 alias gst='git status'
@@ -110,3 +110,6 @@ eval "$(starship init zsh)"
 # Visual Plugins (Must be last)
 source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
