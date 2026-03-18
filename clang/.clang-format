@@ -1,0 +1,102 @@
+---
+# ----------------------------------------------------------------------------
+# "Modern Readable" C++ Clang-Format Configuration
+# ----------------------------------------------------------------------------
+# This style focuses on clarity and vertical breathing room.
+# It deviates from Google (2 spaces) to use 4 spaces for better visual hierarchy.
+# ----------------------------------------------------------------------------
+
+Language: Cpp
+Standard: Latest
+
+# Base style to inherit from (LLVM is a clean, neutral starting point)
+BasedOnStyle: LLVM
+
+# ----------------------------------------------------------------------------
+# Indentation & Spacing (Crucial for Readability)
+# ----------------------------------------------------------------------------
+# Use 4 spaces. It provides a clearer visual separation than 2 spaces.
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+# AccessModifierOffset: -2  #  Keep public/private flush with the class definition
+IndentAccessModifiers: true
+
+# ----------------------------------------------------------------------------
+# Line Length
+# ----------------------------------------------------------------------------
+# 80 chars is too short for modern screens; 120 can be too long for split views.
+# 100 is the "Goldilocks" zone for readability.
+ColumnLimit: 100
+
+# ----------------------------------------------------------------------------
+# Braces & Wrapping
+# ----------------------------------------------------------------------------
+# "Attach" keeps code compact (K&R style). 
+# Change to "Allman" if you prefer braces on their own new lines.
+BreakBeforeBraces: Attach
+
+# Wrap inheritance lists nicely to avoid horizontal sprawl
+BreakInheritanceList: BeforeColon
+
+# Wrap constructor initializers nicely
+BreakConstructorInitializers: BeforeComma
+
+# ----------------------------------------------------------------------------
+# Vertical "Breathing Room"
+# ----------------------------------------------------------------------------
+# Don't force short functions (like getters) onto one line if they are complex,
+# but allow empty/simple ones to be inline.
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
+
+# Add empty lines between namespaces for visual separation
+NamespaceIndentation: All
+FixNamespaceComments: true  # Auto-adds // namespace foo at the end
+
+# ----------------------------------------------------------------------------
+# Alignment (Keeps code looking like a grid)
+# ----------------------------------------------------------------------------
+# Aligns pointers to the left (int* p) vs right (int *p). 
+# Left is generally preferred in modern C++ (the type is int-pointer).
+PointerAlignment: Left
+
+# Align trailing comments (e.g., // comments at end of line align vertically)
+AlignTrailingComments: true
+
+# Note: AlignConsecutiveAssignments is set to false. 
+# While it looks pretty, it creates massive git diffs when you rename one variable.
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+
+# ----------------------------------------------------------------------------
+# Includes
+# ----------------------------------------------------------------------------
+# Sort headers alphabetically and separate main header, C++ std, and 3rd party
+SortIncludes: true
+IncludeBlocks: Regroup
+
+# ----------------------------------------------------------------------------
+# Arguments & Parameters
+# ----------------------------------------------------------------------------
+# If arguments don't fit on one line, put EACH argument on its own line.
+# This prevents "bin-packing" where args are stuffed onto lines randomly.
+BinPackArguments: true
+BinPackParameters: true
+AlignAfterOpenBracket: BlockIndent
+
+# --- Vertical Spacing (Breathing Room) ---
+# Allow the formatter to keep the blank lines you manually type
+MaxEmptyLinesToKeep: 1
+KeepEmptyLinesAtTheStartOfBlocks: true
+
+# Force spaces around public: and private:
+EmptyLineBeforeAccessModifier: Always
+EmptyLineAfterAccessModifier: Always
+
+# Force spaces between your functions automatically
+SeparateDefinitionBlocks: Always
+
+...

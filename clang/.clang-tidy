@@ -1,0 +1,12 @@
+---
+# This tells clang-tidy which rules to turn on or off.
+# The minus sign (-) means "turn off". The lack of a minus means "turn on".
+
+Checks: >
+  -*,
+  clang-diagnostic-*,
+  cppcoreguidelines-*
+
+# Treat these warnings as suggestions, not fatal errors
+WarningsAsErrors: ''
+...

@@ -66,7 +66,8 @@ alias glg='git log --stat'
 # --- 7. Your Custom Aliases ---
 alias c="clear"
 alias open="xdg-open"
-alias c++23="clang++ -std=c++23"
+alias g++='g++ -std=c++23'
+alias clang++='clang++ -std=c++23'
 alias le="eza"
 
 # Pipe any command output directly to your clipboard
