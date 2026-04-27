@@ -5,7 +5,14 @@
 Checks: >
   -*,
   clang-diagnostic-*,
-  cppcoreguidelines-*
+  cppcoreguidelines-*,
+  -cppcoreguidelines-pro-type-pointer-arithmetic,
+  -cppcoreguidelines-owning-memory,
+  misc-const-correctness,
+  readability-non-const-parameter,
+  performance-unnecessary-value-param,
+  performance-unnecessary-copy-initialization,
+  readability-magic-numbers
 
 # Treat these warnings as suggestions, not fatal errors
 WarningsAsErrors: ''
