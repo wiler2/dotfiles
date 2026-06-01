@@ -49,6 +49,9 @@ export TERMINAL="kitty"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Games/not a game/WeiDU-Linux:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+
 # --- 6. Manual "Git Plugin" (Fast Aliases) ---
 alias g='git'
 alias gst='git status'

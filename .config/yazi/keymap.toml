@@ -18,10 +18,6 @@ run = "plugin mount"
 # run  = "plugin zoom -1"
 # desc = "Zoom out hovered file"
 
-[[mgr.prepend_keymap]]
-on = "["
-run = "plugin whoosh jump_by_key"
-desc = "Jump bookmark by key"
 
 # Direct fuzzy search access
 [[mgr.prepend_keymap]]
